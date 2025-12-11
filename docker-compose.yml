@@ -1,0 +1,9 @@
+services:
+  web:
+    build: .
+    container_name: web_ne_app
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
