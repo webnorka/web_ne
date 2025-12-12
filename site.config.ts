@@ -19,7 +19,7 @@ export const siteConfig = {
         { text: "PA", className: "text-yellow-500" },    // Amarillo (Bandera)
         { text: "ÑA_", className: "text-primary" }        // Texto base
     ],
-    domain: "nuevaespana.es",
+    domain: "nuevaespaña.eu",
     title: "Nueva España - Verdad y Libertad",
     description: "Plataforma para el renacimiento de la libertad política y la representación ciudadana.",
 
