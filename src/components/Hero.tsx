@@ -1,9 +1,12 @@
 "use client";
 
+
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import Link from "next/link";
-import { ManifestoViewer } from "./ManifestoViewer";
+import { ManifestoModal } from "@/components/ManifestoModal";
+import { MemberCounter } from "@/components/MemberCounter";
+import { siteConfig } from "@config";
 
 interface HeroProps {
     manifestoContent: string;
@@ -22,24 +25,34 @@ export function Hero({ manifestoContent }: HeroProps) {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
+                    <div className="mb-8">
+                        <MemberCounter />
+                    </div>
+
                     <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6 border border-primary/20">
-                        Libertad Política Colectiva
+                        {siteConfig.hero.badge}
                     </span>
                     <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-gray-400">
-                        LA VERDAD <br /> NOS HARÁ LIBRES
+                        {siteConfig.hero.title} <br /> {siteConfig.hero.subtitle}
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                        No buscamos reformar el sistema. Buscamos la ruptura democrática para instituir una verdadera democracia en España.
+                        {siteConfig.hero.description}
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <ManifestoViewer content={manifestoContent} />
-
+                        <ManifestoModal
+                            content={manifestoContent}
+                            trigger={
+                                <button className="px-8 py-4 bg-primary text-white rounded-lg font-bold hover:bg-red-700 transition-all shadow-[0_0_20px_rgba(190,18,60,0.3)] hover:shadow-[0_0_30px_rgba(190,18,60,0.5)] cursor-pointer">
+                                    {siteConfig.hero.ctaPrimary}
+                                </button>
+                            }
+                        />
                         <Link
                             href="#movements"
                             className="px-8 py-4 bg-secondary text-white rounded-lg font-bold border border-white/10 hover:bg-secondary/80 transition-all"
                         >
-                            Únete a la Acción
+                            {siteConfig.hero.ctaSecondary}
                         </Link>
                     </div>
                 </motion.div>
@@ -56,4 +69,3 @@ export function Hero({ manifestoContent }: HeroProps) {
         </section>
     );
 }
-

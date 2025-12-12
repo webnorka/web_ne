@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { siteConfig } from "@config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nueva España - Verdad y Libertad",
-  description: "Plataforma para el renacimiento de la libertad política y la representación ciudadana.",
+  title: siteConfig.title,
+  description: siteConfig.description,
+  metadataBase: new URL(`https://${siteConfig.domain}`),
 };
 
 export default function RootLayout({
@@ -38,4 +40,3 @@ export default function RootLayout({
     </html>
   );
 }
-

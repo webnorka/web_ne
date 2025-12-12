@@ -7,9 +7,10 @@ import { X, BookOpen, ScrollText } from "lucide-react";
 
 interface ManifestoViewerProps {
     content: string;
+    triggerLabel?: string;
 }
 
-export function ManifestoViewer({ content }: ManifestoViewerProps) {
+export function ManifestoViewer({ content, triggerLabel }: ManifestoViewerProps) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -20,7 +21,7 @@ export function ManifestoViewer({ content }: ManifestoViewerProps) {
             >
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 <BookOpen className="w-5 h-5 relative z-10" />
-                <span className="relative z-10">Leer el Manifiesto</span>
+                <span className="relative z-10">{triggerLabel ?? "Leer el Manifiesto"}</span>
             </button>
 
             <AnimatePresence>
